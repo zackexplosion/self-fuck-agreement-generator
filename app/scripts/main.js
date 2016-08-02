@@ -10,9 +10,32 @@ function update(argument) {
 	img.attr('src', data)
 }
 
+
+function on_text_change(name){
+	var name = name || '高速公路好可怕'
+
+	var wording = `本人${name}簽署這份文件，因為您認為高速/快速公路太危險，而且在不合法的情況下騎上去就沒有素質。`
+
+	// clean before append child
+	stage.removeAllChildren();	
+
+	var text = new createjs.Text(wording, "36px Arial");
+	text.x = 0;
+	text.y = 36;
+	text.textBaseline = "alphabetic";
+	stage.addChild(text)
+
+	update()
+}
+
 jQuery(document).ready(function($) {
 	// focus input box
   $('#name').focus()
+
+  $('#name').on('keyup', function(e){
+  	var name = $(this).val()
+  	on_text_change(name)
+  })
 
   // setup_canvas_size()
 
@@ -22,14 +45,7 @@ jQuery(document).ready(function($) {
 	// circle.x = 100;
 	// circle.y = 100;
 	// stage.addChild(circle)
-	
-
-	var text = new createjs.Text("Hello World", "20px Arial", "#ff7700");
-	text.x = 100;
-	text.y = 100;
-	text.textBaseline = "alphabetic";
-	stage.addChild(text)
-	update()
+	on_text_change()
 })
 
 
