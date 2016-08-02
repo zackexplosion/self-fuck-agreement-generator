@@ -1,32 +1,40 @@
 var canvas_id = 'text-canvas'
+var export_image_id = 'export-image'
 var stage
-function setup_canvas_size(){
+
+function update(argument) {
+	stage.update()
 	var canvas = $('#' + canvas_id)
-	var parent = canvas.parent()
-	var width = parent.outerWidth()
-	canvas.attr({
-		width: width,
-		height: width * 1.5
-	})
+	var data = canvas[0].toDataURL()
+	var img = $('#' + export_image_id)
+	img.attr('src', data)
 }
 
 jQuery(document).ready(function($) {
 	// focus input box
   $('#name').focus()
-  setup_canvas_size()
+
+  // setup_canvas_size()
+
 	stage = new createjs.Stage(canvas_id)
-	var circle = new createjs.Shape()
-	circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50)
-	circle.x = 100;
-	circle.y = 100;
-	stage.addChild(circle)
-	stage.update()
+	// var circle = new createjs.Shape()
+	// circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50)
+	// circle.x = 100;
+	// circle.y = 100;
+	// stage.addChild(circle)
+	
+
+	var text = new createjs.Text("Hello World", "20px Arial", "#ff7700");
+	text.x = 100;
+	text.y = 100;
+	text.textBaseline = "alphabetic";
+	stage.addChild(text)
+	update()
 })
 
 
 $(window).on('resize', function(){
-	setup_canvas_size()
-	stage.update()
+	update()
 })
           // <p>本人{$name}簽署這份文件，因為您認為高速/快速公路太危險，而且在不合法的情況下騎上去就沒有素質。</p>
 
