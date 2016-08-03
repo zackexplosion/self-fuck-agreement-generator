@@ -95,6 +95,14 @@ body {
 #export-image{
   max-width: 100%;
 }
+
+#stringwidth{
+  position: absolute;
+  visibility: hidden;
+  height: auto;
+  width: auto;
+  white-space: nowrap; /* Thanks to Herb Caudill comment */
+}
 // canvas {
 //   border: 1px solid #000;
 // }
