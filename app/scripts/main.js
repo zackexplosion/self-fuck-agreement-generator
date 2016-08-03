@@ -131,6 +131,7 @@ jQuery(document).ready(function($) {
   	}
 
 		ga('send', 'event', '點擊', name, '送出')
+		$('.download').trigger('click')
   })
 
   $('#name').on('keyup', function(e){
