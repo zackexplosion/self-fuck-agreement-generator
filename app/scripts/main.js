@@ -112,9 +112,12 @@ jQuery(document).ready(function($) {
 		var canvas = document.getElementById(canvas_id),
 				ctx = canvas.getContext('2d')
 
+		var file_name = name + '-爆菊花同意書.png'
 		canvas.toBlob(function(blob) {
-			saveAs(blob, name + '-爆菊花同意書.png');
+			saveAs(blob, file_name);
 		})
+
+		ga('send', 'event', '點擊', file_name, '下載')
 		// window.open(img.src)
   })
 
@@ -126,6 +129,8 @@ jQuery(document).ready(function($) {
 			$('.jumbotron').hide()
 			$('.marketing').show()
   	}
+
+		ga('send', 'event', '點擊', name, '送出')
   })
 
   $('#name').on('keyup', function(e){
