@@ -108,13 +108,24 @@ jQuery(document).ready(function($) {
 
   $('.download').on('click', function(e){
 	  e.preventDefault()
+	  var name = $('#name').val()
 		var canvas = document.getElementById(canvas_id),
 				ctx = canvas.getContext("2d")
 
 		canvas.toBlob(function(blob) {
-			saveAs(blob, "pretty image.png");
+			saveAs(blob, name + "-爆菊花同意書.png");
 		})
 		// window.open(img.src)
+  })
+
+  $('#submit').on('click', function(e){
+  	var name = $('#name').val()
+  	if(name.length === 0){
+  		alert('您沒有輸入名字唷!')
+  	}else{
+			$('.jumbotron').hide()
+			$('.marketing').show()
+  	}
   })
 
   $('#name').on('keyup', function(e){
@@ -122,9 +133,10 @@ jQuery(document).ready(function($) {
   	on_text_change(name)
   })
 
-	stage = new createjs.Stage(canvas_id)
-	on_text_change()
 
+  // init stage and default text
+	stage = new createjs.Stage(canvas_id)
+	// on_text_change()
 })
 
 
