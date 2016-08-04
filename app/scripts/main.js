@@ -84,7 +84,7 @@ function on_text_change(name){
 	var wording = '本人%NAME%願意簽署這份文件，因為高速公路及快速公路實在太危險，現階段(%NOW%)不適合沒有路權的二輪車輛行駛。並且認為在不合法的情況下騎乘上去非常沒有素質。 \n'
 	wording += '倘若將來，高速公路開放紅黃牌摩托車行駛，與快速道路開放白牌摩托車行駛，本人%NAME%同意，絕對不在上敘道路使用摩托車（如：紅黃牌行駛高速公路，白牌行駛快速公路），若違反的話，願意上傳自爆菊花影片到社群網站上，表示個人素質與爆菊花決心。'
 
-	var replacements = {"%NAME%": name ,"%NOW%": now ,"%EVENT%":"20"},
+	var replacements = {'%NAME%': name ,'%NOW%': now ,'%EVENT%':'20'},
 	    str = 'My Name is %NAME% and my age is %AGE%.';
 
 	wording = wording.replace(/%\w+%/g, function(all) {
